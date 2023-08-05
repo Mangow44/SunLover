@@ -1,0 +1,9 @@
+{
+  "sign-in": {
+    "sign-in": "Sign in",
+    "username": "Username"
+  },
+  "actions": {
+    "validate": "Validate"
+  }
+}
