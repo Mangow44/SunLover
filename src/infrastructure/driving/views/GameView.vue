@@ -8,6 +8,10 @@ import Shop from '@/infrastructure/driving/components/shop/Shop.vue'
 const userStore = useUserStore()
 
 if (!userStore.user) router.push({ path: '/' })
+
+setInterval(() => {
+  userStore.autoClick()
+}, 1000)
 </script>
 
 <template>
