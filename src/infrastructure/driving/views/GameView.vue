@@ -4,14 +4,11 @@ import router from '@/infrastructure/driving/router'
 import UserInformation from '@/infrastructure/driving/components/UserInformation.vue'
 import Sun from '@/infrastructure/driving/components/Sun.vue'
 import Shop from '@/infrastructure/driving/components/shop/Shop.vue'
+import { onMounted } from 'vue'
 
 const userStore = useUserStore()
 
 if (!userStore.user) router.push({ path: '/' })
-
-setInterval(() => {
-  userStore.autoClick()
-}, 1000)
 </script>
 
 <template>

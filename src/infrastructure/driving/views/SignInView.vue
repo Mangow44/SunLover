@@ -11,7 +11,7 @@ const username = ref<string>('')
 function createUser() {
   userStore.setUser({
     name: username.value,
-    money: 1000000,
+    money: 0,
     numberOfClicks: 0,
     clickPower: 1,
     autoclickPower: 0,

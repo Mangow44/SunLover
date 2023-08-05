@@ -1,12 +1,20 @@
 import { defineStore } from 'pinia'
-import { computed, ref } from 'vue'
+import { computed, inject, ref } from 'vue'
 import type User from '@/domain/models/User'
-import { autoclickers } from '@/infrastructure/driven/data/autoclickers'
+import type Repository from '@/domain/ports/Repository'
+import type Autoclicker from '@/domain/models/Autoclicker'
 
 export const useUserStore = defineStore('user', () => {
   const userState = ref<User | undefined>(undefined)
 
   const user = computed<User | undefined>(() => userState.value)
+
+  const autoclickerRepository: Repository<Autoclicker> = inject('AutoclickerRepository')!
+  const autoclickers: Autoclicker[] = autoclickerRepository.getAll()
+
+  setInterval(() => {
+    autoClick()
+  }, 1000)
 
   function setUser(newUser: User): void {
     userState.value = newUser
@@ -14,16 +22,16 @@ export const useUserStore = defineStore('user', () => {
 
   function updateUserAutoclickPower(): void {
     if (!userState.value) return
-    let autoclickpower = 0
+    let autoclickPower = 0
 
     userState.value?.autoclickers.forEach((userAutocliker) => {
       const autoclickerPower: number | undefined = autoclickers.find(
         (autoclicker) => userAutocliker.id === autoclicker.id
       )?.power
-      if (autoclickerPower) autoclickpower += autoclickerPower * userAutocliker.quantity
+      if (autoclickerPower) autoclickPower += autoclickerPower * userAutocliker.quantity
     })
 
-    userState.value.autoclickPower = autoclickpower
+    userState.value.autoclickPower = autoclickPower
   }
 
   function click(): void {

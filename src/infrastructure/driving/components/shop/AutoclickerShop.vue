@@ -23,7 +23,7 @@ const userQuantityOfAutocliker = computed<number | undefined>(() =>
 )
 const price = computed<number>(() =>
   userQuantityOfAutocliker.value
-    ? props.autocliker.initialCost ** 2 * userQuantityOfAutocliker.value * 10
+    ? props.autocliker.initialCost ** 2 * userQuantityOfAutocliker.value * 5
     : props.autocliker.initialCost ** 2
 )
 </script>
