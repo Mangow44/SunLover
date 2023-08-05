@@ -13,7 +13,7 @@ function createUser() {
     name: username.value,
     money: 0,
     numberOfClicks: 0,
-    clickPower: 0,
+    clickPower: 1,
     autoclickPower: 0,
     autoclickers: []
   })

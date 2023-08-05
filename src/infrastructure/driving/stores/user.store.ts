@@ -11,5 +11,10 @@ export const useUserStore = defineStore('user', () => {
     userState.value = newUser
   }
 
-  return { user, setUser }
+  function click(): void {
+    userState.value!.money += userState.value!.clickPower
+    userState.value!.numberOfClicks += 1
+  }
+
+  return { user, setUser, click }
 })

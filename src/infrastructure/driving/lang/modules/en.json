@@ -5,5 +5,9 @@
   },
   "actions": {
     "validate": "Validate"
+  },
+  "user-information": {
+    "click-power": "Click power",
+    "auto-click-power": "Auto click power"
   }
 }
