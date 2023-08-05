@@ -5,11 +5,13 @@ import { useUserStore } from '@/infrastructure/driving/stores/user.store'
 
 const { t } = useI18n()
 const userStore = useUserStore()
-const price = computed<number>(() => userStore.user!.clickPower * 2 * 10)
+const price = computed<number | undefined>(() =>
+  userStore.user ? userStore.user.clickPower ** 2 * 10 : undefined
+)
 </script>
 
 <template>
-  <div id="clickShop">
+  <div v-if="price" id="click-shop">
     <span>{{ t('user-information.click-power') }}</span>
     <span>
       <p>€</p>
