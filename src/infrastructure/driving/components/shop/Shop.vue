@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
 import { useUserStore } from '@/infrastructure/driving/stores/user.store'
+import ClickShop from '@/infrastructure/driving/components/shop/ClickShop.vue'
 
-const { t } = useI18n()
 const userStore = useUserStore()
 </script>
 
 <template>
-  <div id="sun">
-    <button @click="userStore.click()">{{ t('sun') }}</button>
+  <div v-if="userStore.user" id="shop">
+    <click-shop />
   </div>
 </template>
