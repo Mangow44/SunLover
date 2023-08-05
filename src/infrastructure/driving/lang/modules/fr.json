@@ -1,0 +1,9 @@
+{
+  "sign-in": {
+    "sign-in": "Connexion",
+    "username": "Nom d'utilisateur"
+  },
+  "actions": {
+    "validate": "Valider"
+  }
+}
