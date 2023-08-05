@@ -4,10 +4,12 @@
     "username": "Username"
   },
   "actions": {
-    "validate": "Validate"
+    "validate": "Validate",
+    "purchase": "Purchase"
   },
   "user-information": {
     "click-power": "Click power",
     "auto-click-power": "Auto click power"
-  }
+  },
+  "sun": "Sun"
 }

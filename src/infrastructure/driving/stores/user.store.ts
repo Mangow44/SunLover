@@ -12,9 +12,18 @@ export const useUserStore = defineStore('user', () => {
   }
 
   function click(): void {
-    userState.value!.money += userState.value!.clickPower
-    userState.value!.numberOfClicks += 1
+    if (!userState.value) return
+    userState.value.money += userState.value!.clickPower
+    userState.value.numberOfClicks += 1
   }
 
-  return { user, setUser, click }
+  function purchaseClickPower(price: number): void {
+    if (!userState.value) return
+    if (userState.value.money >= price) {
+      userState.value.money -= price
+      userState.value.clickPower += 1
+    }
+  }
+
+  return { user, setUser, click, purchaseClickPower }
 })
