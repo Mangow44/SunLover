@@ -8,6 +8,7 @@ export default class AutoclickerMapper implements ModelMapper<Autoclicker, Autoc
       id: dto.id,
       name: dto.name,
       description: dto.description,
+      img: dto.img,
       initialCost: dto.initialCost,
       power: dto.power
     } as Autoclicker
@@ -18,6 +19,7 @@ export default class AutoclickerMapper implements ModelMapper<Autoclicker, Autoc
       id: entity.id,
       name: entity.name,
       description: entity.description,
+      img: entity.img,
       initialCost: entity.initialCost,
       power: entity.power
     } as AutoclickerDto

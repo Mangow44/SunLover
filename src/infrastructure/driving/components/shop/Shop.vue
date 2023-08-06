@@ -15,8 +15,22 @@ const autoclickers: Autoclicker[] = autoclickerRepository.getAll()
   <div v-if="userStore.user" id="shop">
     <click-shop />
 
-    <div class="shop-autoclikers">
+    <div class="shop-autoclickers">
       <autoclicker-shop v-for="autocliker in autoclickers" :autocliker="autocliker" />
     </div>
   </div>
 </template>
+
+<style scoped>
+#shop {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.shop-autoclickers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+</style>
