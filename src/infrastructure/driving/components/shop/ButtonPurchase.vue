@@ -30,7 +30,7 @@ const { t } = useI18n()
   border-width: 1px 0;
 
   color: var(--color-secondary);
-  background-color: var(--color-white);
+  background-color: var(--color-primary);
 }
 
 .btn-purchase:hover {
