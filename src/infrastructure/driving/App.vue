@@ -7,3 +7,16 @@ import { RouterView } from 'vue-router'
     <RouterView />
   </main>
 </template>
+
+<style scoped>
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 1024px) {
+  main {
+    flex-direction: row;
+  }
+}
+</style>

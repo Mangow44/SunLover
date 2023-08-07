@@ -5,6 +5,9 @@ export default interface AutoclickerDto {
     en: string
   }
   description: string
+  img: {
+    src: string
+  }
   initialCost: number
   power: number
 }
