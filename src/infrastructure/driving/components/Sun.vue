@@ -3,9 +3,9 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useUserStore } from '@/infrastructure/driving/stores/user.store'
 
-const isAnimated = ref<boolean>(false)
 const { t } = useI18n()
 const userStore = useUserStore()
+const isAnimated = ref<boolean>(false)
 
 function playAnimation(): void {
   isAnimated.value = true
@@ -20,13 +20,13 @@ function playAnimation(): void {
     <button
       class="btn-sun"
       :class="{ scale: isAnimated }"
-      draggable="false"
       @click="
         () => {
           userStore.click()
           playAnimation()
         }
       "
+      draggable="false"
     ></button>
     <p>{{ t('sun') }}</p>
   </div>
@@ -36,14 +36,14 @@ function playAnimation(): void {
 #sun {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
 
   padding: 0.3rem;
 }
 
 #sun > p {
-  margin: auto;
-
   text-transform: uppercase;
   font-weight: bold;
   font-size: 0.8rem;
@@ -52,7 +52,6 @@ function playAnimation(): void {
 .btn-sun {
   width: 16rem;
   height: 16rem;
-  margin: auto;
 
   cursor: pointer;
 
@@ -66,6 +65,6 @@ function playAnimation(): void {
 }
 
 .scale {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 </style>

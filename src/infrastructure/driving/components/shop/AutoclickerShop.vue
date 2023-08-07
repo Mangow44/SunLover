@@ -16,27 +16,27 @@ const userLanguage = computed<string>(() => navigator.language.split('-')[0])
 const autoclikerName = computed<string>(() =>
   userLanguage.value === 'fr' ? props.autocliker.name.fr : props.autocliker.name.en
 )
-const userQuantityOfAutocliker = computed<number | undefined>(() =>
+const autoclickerQuantity = computed<number | undefined>(() =>
   userStore.user
     ? userStore.user.autoclickers.filter((autoclicker) => autoclicker.id === props.autocliker.id)
         .length
     : undefined
 )
 const price = computed<number>(() =>
-  userQuantityOfAutocliker.value
-    ? props.autocliker.initialCost ** 2 * userQuantityOfAutocliker.value * 5
+  autoclickerQuantity.value
+    ? props.autocliker.initialCost ** 2 * autoclickerQuantity.value * 5
     : props.autocliker.initialCost ** 2
 )
 </script>
 
 <template>
   <button-purchase
-    v-if="userQuantityOfAutocliker != undefined"
+    v-if="autoclickerQuantity != undefined"
     @click="userStore.purchaseAutoclicker(autocliker.id, price)"
   >
     <div class="autocliker-information">
       <img :src="autocliker.img.src" :alt="autoclikerName" />
-      <p>{{ autoclikerName }} ({{ userQuantityOfAutocliker }})</p>
+      <p>{{ autoclikerName }} ({{ autoclickerQuantity }})</p>
     </div>
 
     <div class="purchase-information">

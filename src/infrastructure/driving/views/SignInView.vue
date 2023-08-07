@@ -22,9 +22,9 @@ function createUser() {
 </script>
 
 <template>
-  <h1 class="title">{{ t('sign-in.sign-in') }}</h1>
-
   <form @submit.prevent="createUser()">
+    <h1 class="title">{{ t('sign-in.sign-in') }}</h1>
+
     <span class="username">
       <label for="name">{{ t('sign-in.username') }}</label>
       <input v-model="username" id="name" type="text" required />
@@ -35,21 +35,20 @@ function createUser() {
 </template>
 
 <style scoped>
-.title {
-  text-align: center;
-  text-transform: uppercase;
-
-  margin: 2rem 0;
-
-  color: var(--color-black);
-}
-
 form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
 
   margin: auto;
+
+  color: var(--color-secondary);
+}
+.title {
+  margin: 2rem auto;
+
+  text-transform: uppercase;
 }
 
 .username {
@@ -67,36 +66,34 @@ form {
   padding: 0.25rem;
 
   border-radius: 10px;
-  border: 1px solid var(--color-black);
+  border: 1px solid var(--color-secondary);
 
   font-size: 1rem;
 
-  outline-color: var(--color-black);
+  outline-color: var(--color-secondary);
 }
 
 .btn-validate {
-  margin: auto;
   padding: 0.5rem 1rem;
 
   cursor: pointer;
 
   border-radius: 10px;
   border: none;
-  border: 1px solid var(--color-black);
+  border: 1px solid var(--color-secondary);
 
   font-weight: bold;
   text-transform: uppercase;
   font-size: 1rem;
-  color: var(--color-black);
 
   transition: all 0.2s ease-in-out;
 
-  background-color: var(--color-white);
+  background-color: var(--color-primary);
 }
 
 .btn-validate:hover {
-  border-color: var(--color-white);
-  color: var(--color-white);
-  background-color: var(--color-black);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
 }
 </style>

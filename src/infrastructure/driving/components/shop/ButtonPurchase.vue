@@ -25,11 +25,11 @@ const { t } = useI18n()
 
   cursor: pointer;
 
-  border-color: var(--color-black);
+  border-color: var(--color-secondary);
   border-style: solid;
   border-width: 1px 0;
 
-  color: var(--color-black);
+  color: var(--color-secondary);
   background-color: var(--color-white);
 }
 

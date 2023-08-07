@@ -40,6 +40,8 @@ const userStore = useUserStore()
   gap: 0.5rem;
 
   padding: 0.2rem;
+
+  color: var(--color-secondary);
 }
 
 .username {

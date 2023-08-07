@@ -1,16 +1,10 @@
 :root {
+  --color-primary: var(--color-white);
+  --color-secondary: var(--color-black);
   --color-white: #ffffff;
   --color-black: #333333;
   --color-light-gray: #ececec;
   --color-yellow: #faf753;
-
-  --color-beige: #f2e3b3;
-  --color-light-brown: #d98943;
-  --color-green-beige: #f2d06b;
-  --color-light-green: #d9cb04;
-  --color-green: #888c03;
-  --color-dark-green: #022601;
-  --color-taupe: #e8e6da;
 }
 
 @font-face {

@@ -14,7 +14,7 @@ const price = computed<number | undefined>(() =>
 <template>
   <button-purchase v-if="price" @click="userStore.purchaseClickPower(price)">
     <img
-      class="icon-primary"
+      class="click-icon"
       src="/icons/cursor-click.svg"
       :alt="t('user-information.click-power')"
     />
@@ -27,7 +27,7 @@ const price = computed<number | undefined>(() =>
 </template>
 
 <style scoped>
-.icon-primary {
+.click-icon {
   width: 2rem;
   height: auto;
 }
@@ -44,9 +44,9 @@ const price = computed<number | undefined>(() =>
 .price p {
   font-size: 0.9rem;
 
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .price .icon {
