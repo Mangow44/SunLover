@@ -31,7 +31,9 @@ function createUser() {
       <input v-model="username" id="name" type="text" required />
     </span>
 
-    <button class="btn-validate" type="submit">{{ t('actions.validate') }}</button>
+    <button class="btn-validate" type="submit" data-testid="submit-btn">
+      {{ t('actions.validate') }}
+    </button>
   </form>
 </template>
 
