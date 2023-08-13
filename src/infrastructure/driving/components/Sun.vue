@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useUserStore } from '@/infrastructure/driving/stores/user.store'
+import UserManager from '@/infrastructure/driving/services/UserManager'
 
 const { t } = useI18n()
-const userStore = useUserStore()
+const userManager = new UserManager()
 const isAnimated = ref<boolean>(false)
 
 function playAnimation(): void {
@@ -22,7 +22,7 @@ function playAnimation(): void {
       :class="{ scale: isAnimated }"
       @click="
         () => {
-          userStore.click()
+          userManager.click()
           playAnimation()
         }
       "

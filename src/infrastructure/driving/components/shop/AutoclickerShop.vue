@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useUserStore } from '@/infrastructure/driving/stores/user.store'
+import UserManager from '@/infrastructure/driving/services/UserManager'
 import ButtonPurchase from '@/infrastructure/driving/components/shop/ButtonPurchase.vue'
 import type Autoclicker from '@/domain/models/Autoclicker'
 
@@ -10,15 +10,15 @@ const props = defineProps<{
 }>()
 
 const { t } = useI18n()
-const userStore = useUserStore()
+const userManager = new UserManager()
 const userLanguage = computed<string>(() => navigator.language.split('-')[0])
 
 const autoclikerName = computed<string>(() =>
   userLanguage.value === 'fr' ? props.autocliker.name.fr : props.autocliker.name.en
 )
 const autoclickerQuantity = computed<number | undefined>(() =>
-  userStore.user
-    ? userStore.user.autoclickers.filter((autoclicker) => autoclicker.id === props.autocliker.id)
+  userManager.user
+    ? userManager.user.autoclickers.filter((autoclicker) => autoclicker.id === props.autocliker.id)
         .length
     : undefined
 )
@@ -32,7 +32,7 @@ const price = computed<number>(() =>
 <template>
   <button-purchase
     v-if="autoclickerQuantity != undefined"
-    @click="userStore.purchaseAutoclicker(autocliker.id, price)"
+    @click="userManager.purchaseAutoclicker(autocliker.id, price)"
   >
     <div class="autocliker-information">
       <img :src="autocliker.img.src" :alt="autoclikerName" />

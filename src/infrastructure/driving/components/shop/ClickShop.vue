@@ -1,18 +1,18 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useUserStore } from '@/infrastructure/driving/stores/user.store'
+import UserManager from '@/infrastructure/driving/services/UserManager'
 import ButtonPurchase from '@/infrastructure/driving/components/shop/ButtonPurchase.vue'
 
 const { t } = useI18n()
-const userStore = useUserStore()
+const userManager = new UserManager()
 const price = computed<number | undefined>(() =>
-  userStore.user ? userStore.user.clickPower ** 2 * 10 : undefined
+  userManager.user ? userManager.user.clickPower ** 2 * 10 : undefined
 )
 </script>
 
 <template>
-  <button-purchase v-if="price" @click="userStore.purchaseClickPower(price)">
+  <button-purchase v-if="price" @click="userManager.purchaseClickPower(price)">
     <img
       class="click-icon"
       src="/icons/cursor-click.svg"

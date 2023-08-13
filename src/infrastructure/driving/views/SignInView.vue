@@ -1,22 +1,23 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useUserStore } from '@/infrastructure/driving/stores/user.store'
+import UserManager from '@/infrastructure/driving/services/UserManager'
 import router from '@/infrastructure/driving/router'
 
 const { t } = useI18n()
-const userStore = useUserStore()
+const userManager = new UserManager()
 const username = ref<string>('')
 
 function createUser() {
-  userStore.setUser({
+  userManager.user = {
     name: username.value,
     money: 0,
     numberOfClicks: 0,
     clickPower: 1,
     autoclickPower: 0,
     autoclickers: []
-  })
+  }
+
   router.push({ path: '/game' })
 }
 </script>

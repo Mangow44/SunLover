@@ -1,13 +1,17 @@
 <script setup lang="ts">
-import { useUserStore } from '@/infrastructure/driving/stores/user.store'
+import UserManager from '@/infrastructure/driving/services/UserManager'
 import router from '@/infrastructure/driving/router'
 import UserInformation from '@/infrastructure/driving/components/UserInformation.vue'
 import Sun from '@/infrastructure/driving/components/Sun.vue'
 import Shop from '@/infrastructure/driving/components/shop/Shop.vue'
 
-const userStore = useUserStore()
+const userManager = new UserManager()
 
-if (!userStore.user) router.push({ path: '/' })
+if (!userManager.user) router.push({ path: '/' })
+
+setInterval(() => {
+  userManager.autoClick()
+}, 1000)
 </script>
 
 <template>

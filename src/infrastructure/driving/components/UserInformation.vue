@@ -1,25 +1,25 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import { useUserStore } from '@/infrastructure/driving/stores/user.store'
+import UserManager from '@/infrastructure/driving/services/UserManager'
 
 const { t } = useI18n()
-const userStore = useUserStore()
+const userManager = new UserManager()
 </script>
 
 <template>
   <div id="user-information">
-    <h2 class="username">{{ userStore.user?.name }}</h2>
+    <h2 class="username">{{ userManager.user?.name }}</h2>
 
     <div class="information">
       <img class="icon" src="/icons/coins.svg" :alt="t('user-information.money')" />
-      <p>{{ userStore.user?.money }}</p>
+      <p>{{ userManager.user?.money }}</p>
     </div>
 
     <div>
       <p class="information-text">{{ t('user-information.click-power') }}</p>
       <span class="information">
         <img class="icon" src="/icons/cursor-click.svg" :alt="t('user-information.click-power')" />
-        <p>{{ userStore.user?.clickPower }}</p>
+        <p>{{ userManager.user?.clickPower }}</p>
       </span>
     </div>
 
@@ -27,7 +27,7 @@ const userStore = useUserStore()
       <p class="information-text">{{ t('user-information.auto-click-power') }}</p>
       <span class="information">
         <img class="icon" src="/icons/sword.svg" :alt="t('user-information.auto-click-power')" />
-        <p>{{ userStore.user?.autoclickPower }}</p>
+        <p>{{ userManager.user?.autoclickPower }}</p>
       </span>
     </div>
   </div>
