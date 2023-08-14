@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import UserManager from '@/infrastructure/driving/services/UserManager'
 import router from '@/infrastructure/driving/router'
-import UserInformation from '@/infrastructure/driving/components/UserInformation.vue'
-import Sun from '@/infrastructure/driving/components/Sun.vue'
+import UserInformation from '@/infrastructure/driving/components/user/UserInformation.vue'
+import Sun from '@/infrastructure/driving/components/sun/Sun.vue'
 import Shop from '@/infrastructure/driving/components/shop/Shop.vue'
 
 const userManager = new UserManager()

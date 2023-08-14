@@ -6,7 +6,7 @@ import type Repository from '@/domain/ports/Repository'
 
 export default class UserManager {
   private userStore: any
-  private autoclickerRepository: Repository<Autoclicker>
+  private autoclickerRepository: Repository<Autoclicker> // l'objectif c'est de retirer ça et de passer que des id dans les paramètres des fonctions
 
   constructor() {
     this.userStore = useUserStore()
@@ -34,6 +34,7 @@ export default class UserManager {
     this.user.money += this.user.autoclickPower
   }
 
+  // On pourrait retirer le price et faire un manager pour le calculer
   public purchaseClickPower(price: number): void {
     if (!this.user) return
 
@@ -43,6 +44,7 @@ export default class UserManager {
     }
   }
 
+  // On pourrait retirer le price et faire un manager pour le calculer (via l'id et l'initial price)
   public purchaseAutoclicker(id: string, price: number): void {
     if (!this.user) return
 
@@ -64,13 +66,15 @@ export default class UserManager {
     }
   }
 
-  private updateUserAutoclickPower(autoclikerId: string): void {
+  private updateUserAutoclickPower(id: string): void {
     if (!this.user) return
 
-    // TODO faire un getById
+    // TODO faire un getById - créer un store et un manager pour les autoclickers
+    // Faire les fonction getAll et getById et si le store est vide alors le remplir avec un call sur le repository
+    // Sinon tout passe par le manager / store (car les données sont "statiques")
     const autoclicker: Autoclicker | undefined = this.autoclickerRepository
       .getAll()
-      .find((autoclk) => autoclk.id === autoclikerId)
+      .find((autoclk) => autoclk.id === id)
 
     if (autoclicker) this.user.autoclickPower += autoclicker.power
   }

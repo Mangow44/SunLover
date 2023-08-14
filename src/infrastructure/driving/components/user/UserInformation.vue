@@ -8,18 +8,18 @@ const userManager = new UserManager()
 
 <template>
   <div id="user-information">
-    <h2 class="username">{{ userManager.user?.name }}</h2>
+    <h2 class="username" data-testid="username">{{ userManager.user?.name }}</h2>
 
     <div class="information">
       <img class="icon" src="/icons/coins.svg" :alt="t('user-information.money')" />
-      <p>{{ userManager.user?.money }}</p>
+      <p data-testid="money">{{ userManager.user?.money }}</p>
     </div>
 
     <div>
       <p class="information-text">{{ t('user-information.click-power') }}</p>
       <span class="information">
         <img class="icon" src="/icons/cursor-click.svg" :alt="t('user-information.click-power')" />
-        <p>{{ userManager.user?.clickPower }}</p>
+        <p data-testid="click-power">{{ userManager.user?.clickPower }}</p>
       </span>
     </div>
 
@@ -27,7 +27,7 @@ const userManager = new UserManager()
       <p class="information-text">{{ t('user-information.auto-click-power') }}</p>
       <span class="information">
         <img class="icon" src="/icons/sword.svg" :alt="t('user-information.auto-click-power')" />
-        <p>{{ userManager.user?.autoclickPower }}</p>
+        <p data-testid="auto-click-power">{{ userManager.user?.autoclickPower }}</p>
       </span>
     </div>
   </div>

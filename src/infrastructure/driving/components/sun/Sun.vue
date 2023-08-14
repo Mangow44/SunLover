@@ -27,6 +27,7 @@ function playAnimation(): void {
         }
       "
       draggable="false"
+      data-testid="sun"
     ></button>
     <p>{{ t('sun') }}</p>
   </div>
